@@ -9,13 +9,15 @@ cur_in = 0
 count = 0
 
 for i in range(num_events):
-	new_enter = input()
+	new_enter, entering = input().split()
+	entering = int(entering)
 	if new_enter[0] == 'e':
-		if int(new_enter[-1]) + cur_in > fire_safety_limit:
+
+		if entering + cur_in > fire_safety_limit:
 			count += 1
 		else:
-			cur_in += int(new_enter[-1])
+			cur_in += entering
 	else:
-		cur_in -= int(new_enter[-1])
+		cur_in -= entering
 
 print(count)
